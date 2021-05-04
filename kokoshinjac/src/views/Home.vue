@@ -4,16 +4,17 @@
     <h1>Kokoshinjac</h1>
     <h2 v-if="this.loginButton" @click="prijava()" class="prijavaBtn">Prijava</h2>
     <Login v-if="this.clicked" v-on:loginSucc="loginSuccessful"/>
+    
   </div>
 </template>
 
 <script>
   import Login from './Login.vue';
-
 export default {
   name: 'Home',
   components: {
     Login,
+    Days
   },
   methods: {
     prijava(){
