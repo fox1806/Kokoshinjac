@@ -4,7 +4,6 @@ import "firebase/auth";
 
 const firebaseConfig = {
     // unos podataka API-a
-    
   };
   
   // Initialize Firebase
