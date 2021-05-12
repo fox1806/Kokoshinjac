@@ -10,11 +10,11 @@
 
 <script>
   import Login from './Login.vue';
+  import {auth} from '../../firebase';
 export default {
   name: 'Home',
   components: {
     Login,
-    Days
   },
   methods: {
     prijava(){
@@ -32,6 +32,7 @@ export default {
       loginButton: true,
     }
   },
+  
 }
 </script>
 
@@ -65,9 +66,10 @@ export default {
     color: #D4AF37;
     position: absolute;
     top: 0;
+    right: 0;
     cursor: pointer;
     margin-top: 55px;
-    margin-left: 15px;
+    margin-right: 25px;
   }
 
   @media only screen and (max-width: 750px) {

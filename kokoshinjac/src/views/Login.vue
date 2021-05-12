@@ -1,8 +1,10 @@
 <template>
+    <div class="loginBody">
     <div class="loginForm">
         <input v-model="mail" type="email" placeholder="Unesite e-mail">
         <input v-model="password" type="password" placeholder="Unesite lozinku">
         <button @click="login()">Prijava</button>
+    </div>
     </div>
 </template>
 
@@ -28,7 +30,7 @@ export default {
                         var user = userCredential.user;
                         // ...
                         this.$emit('loginSucc', false);
-                        
+                        this.$router.replace("izracun");
                     })
                     .catch((error) => {
                         var errorCode = error.code;
@@ -39,12 +41,20 @@ export default {
             else{
                 alert('Unesite e-mail ili lozinku')
             }
-        }
+        },
+    beforeCreate() {
+    console.log(auth.currentUser);
+    this.clicked = auth.currentUser;
+  },
     },
 }
 </script>
 
 <style>
+    .loginBody{
+        
+    }
+
     .loginForm{
         margin-top: 150px;
         display: flex;
