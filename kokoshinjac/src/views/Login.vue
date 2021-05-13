@@ -45,6 +45,7 @@ export default {
     beforeCreate() {
     console.log(auth.currentUser);
     this.clicked = auth.currentUser;
+    
   },
     },
 }

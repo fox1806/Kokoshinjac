@@ -2,6 +2,9 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import IzracunTroskova from '../views/IzracunTroskova.vue'
 import {auth} from "../../firebase"
+import firebase from "firebase/app"
+import "firebase/auth"
+
 const routes = [
   {
     path: '/',
@@ -26,14 +29,15 @@ const router = createRouter({
 
 
 router.beforeEach((to, from, next) => {
-  const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
-  console.log(auth.currentUser, requiresAuth);
-  if (requiresAuth && !auth.currentUser) {
-    next('/')
-    alert('Molimo prijavite se u sustav')
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  const isAuthenticated = firebase.auth().currentUser;
+  console.log("isauthenticated", isAuthenticated);
+  if (requiresAuth && !isAuthenticated) {
+    next("/login");
+    alert("Ne!")
   } else {
-    next()
+    next();
   }
-})
+});
 
 export default router

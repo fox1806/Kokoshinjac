@@ -3,6 +3,8 @@
     <img alt="Vue logo" src="../assets/logo.png">
     <h1>Kokoshinjac</h1>
     <h2 v-if="this.loginButton" @click="prijava()" class="prijavaBtn">Prijava</h2>
+        <button @click="odjava()">Odjava</button>
+
     <Login v-if="this.clicked" v-on:loginSucc="loginSuccessful"/>
     
   </div>
@@ -24,7 +26,13 @@ export default {
       //izbrisi
       this.clicked = value;
       this.loginButton = false;
-    }
+    },
+      odjava(){
+        auth.signOut().then(()=>{
+          console.log('odjavljen');
+          this.$router.push('/')
+        });
+        },
   },
   data() {
     return {
