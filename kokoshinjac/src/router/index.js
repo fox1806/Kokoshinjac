@@ -1,7 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import IzracunTroskova from '../views/IzracunTroskova.vue'
-import {auth} from "../../firebase"
+import PregledTroskova from '../views/PregledTroskova.vue'
+import Unos from "../views/Unos"
+// import {auth} from "../../firebase"
 import firebase from "firebase/app"
 import "firebase/auth"
 
@@ -12,12 +13,20 @@ const routes = [
     component: Home
   },
   {
-    path: '/izracun',
-    name: 'IzracunTroskova',
-    component: IzracunTroskova,
+    path: '/pregled',
+    name: 'PregledTroskova',
+    component: PregledTroskova,
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: '/unos',
+    name: 'unos',
+    component: Unos,
+    // meta: {
+    //   requiresAuth: true
+    // }
   },
 
   ]
@@ -33,7 +42,7 @@ router.beforeEach((to, from, next) => {
   const isAuthenticated = firebase.auth().currentUser;
   console.log("isauthenticated", isAuthenticated);
   if (requiresAuth && !isAuthenticated) {
-    next("/login");
+    next("/");
     alert("Ne!")
   } else {
     next();

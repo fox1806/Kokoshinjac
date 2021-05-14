@@ -2,17 +2,19 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <h1>Kokoshinjac</h1>
-    <h2 v-if="this.loginButton" @click="prijava()" class="prijavaBtn">Prijava</h2>
-        <button @click="odjava()">Odjava</button>
-
+    <div class="buttons">
+      <h2 v-if="this.loginButton" @click="prijava()">Prijava</h2>
+      <h2 v-if="!this.loginButton" @click="signOut">Odjava</h2>
+    </div>
     <Login v-if="this.clicked" v-on:loginSucc="loginSuccessful"/>
-    
   </div>
 </template>
 
 <script>
   import Login from './Login.vue';
-  import {auth} from '../../firebase';
+
+  import {auth} from '../../firebase'
+
 export default {
   name: 'Home',
   components: {
@@ -20,19 +22,19 @@ export default {
   },
   methods: {
     prijava(){
-      this.clicked = true;
+      this.clicked = !this.clicked;
     },
     loginSuccessful(value){
       //izbrisi
       this.clicked = value;
       this.loginButton = false;
     },
-      odjava(){
-        auth.signOut().then(()=>{
-          console.log('odjavljen');
-          this.$router.push('/')
-        });
-        },
+    signOut(){
+      auth.signOut().then(()=>{
+        console.log('odjavljen');
+        this.$router.replace('/')
+      });
+    }
   },
   data() {
     return {
@@ -40,7 +42,10 @@ export default {
       loginButton: true,
     }
   },
-  
+  beforeMount(){
+    (auth.currentUser!==null) ? this.loginButton = false : this.loginButton = true;
+    console.log(this.loginButton);
+  }
 }
 </script>
 
@@ -52,6 +57,7 @@ export default {
     background-color: black;
     top: 0;
     left: 0;
+    margin-top: 30px;
   }
   
   .home img{
@@ -70,14 +76,13 @@ export default {
     margin: -25px 0 0 -25px; 
     }
 
-  .prijavaBtn{
+  .buttons{
     color: #D4AF37;
     position: absolute;
     top: 0;
-    right: 0;
     cursor: pointer;
     margin-top: 55px;
-    margin-right: 25px;
+    margin-left: 15px;
   }
 
   @media only screen and (max-width: 750px) {

@@ -40,7 +40,7 @@ export default {
     }
     .days{
         cursor: pointer;
-        padding-top: 150px;
+        padding-top: 190px;
         display: grid;
         grid-template-columns: repeat(9, 10vw [col-start]);
         /* grid-gap: 0px; */
