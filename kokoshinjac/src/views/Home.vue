@@ -12,13 +12,14 @@
 
 <script>
   import Login from './Login.vue';
-
   import {auth} from '../../firebase'
+  import Unos from './Unos.vue';
 
 export default {
   name: 'Home',
   components: {
     Login,
+    Unos,
   },
   methods: {
     prijava(){

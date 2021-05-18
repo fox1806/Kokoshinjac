@@ -1,22 +1,26 @@
 import firebase from "firebase/app";
 
 import "firebase/auth";
+import 'firebase/firestore'
 
 const firebaseConfig = {
     // unos podataka API-a
-    apiKey: "AIzaSyDHXzbJXw6J5Hhxo5KZetYYnIBRbpEzXyg",
-    authDomain: "kokoshinjac-ce239.firebaseapp.com",
-    projectId: "kokoshinjac-ce239",
-    storageBucket: "kokoshinjac-ce239.appspot.com",
-    messagingSenderId: "350418679609",
-    appId: "1:350418679609:web:fdf4bca0235cd873d4dae8"
+   
   };
   
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-const auth = firebase.auth();
+const db = firebase.firestore()
+const auth = firebase.auth()
+
+
+const jaja = db.collection('jaja');
+const hrana = db.collection('hrana');
 
 export {
-    auth
+    db,
+    auth,
+    jaja,
+    hrana
 }
