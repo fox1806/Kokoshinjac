@@ -22,18 +22,23 @@ export default {
     Unos,
   },
   methods: {
-    prijava(){
+      prijava(){
       this.clicked = !this.clicked;
     },
     loginSuccessful(value){
       //izbrisi
+      console.log('logged');
       this.clicked = value;
       this.loginButton = false;
+      this.$emit('loggedIn',true);
+// this.$emit('loginSucc', false);
+
     },
     signOut(){
       auth.signOut().then(()=>{
         console.log('odjavljen');
-        this.$router.replace('/')
+        // this.$router.push('/')
+        this.$router.go()
       });
     }
   },
@@ -45,7 +50,6 @@ export default {
   },
   beforeMount(){
     (auth.currentUser!==null) ? this.loginButton = false : this.loginButton = true;
-    console.log(this.loginButton);
   }
 }
 </script>

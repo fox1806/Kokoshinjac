@@ -27,10 +27,9 @@ export default {
                 auth.signInWithEmailAndPassword(this.mail, this.password)
                     .then((userCredential) => {
                         // Signed in
-                        var user = userCredential.user;
                         // ...
                         this.$emit('loginSucc', false);
-                        this.$router.replace("izracun");
+                        this.$router.push("/pregled");
                     })
                     .catch((error) => {
                         var errorCode = error.code;
@@ -43,7 +42,6 @@ export default {
             }
         },
     beforeCreate() {
-    console.log(auth.currentUser);
     this.clicked = auth.currentUser;
     
   },
