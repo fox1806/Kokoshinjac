@@ -14,8 +14,8 @@ import {auth} from '../../firebase';
 export default {
     data() {
         return {
-            mail:'mail@mail.com',
-            password:'lozinka',
+            mail:'',
+            password:'',
         }
     },
     methods: {
