@@ -22,6 +22,7 @@ import {jaja} from "../../firebase"
             return{
             opcije :['jaja','hrana'],    
             odabrano:'',
+            kolicina: '',
             }
         },
        methods: {
@@ -47,7 +48,11 @@ import {jaja} from "../../firebase"
                 jaja.add({
                  kolicinaJaja: this.kolicina,
                  datum: new Date(),  
-                })
+                }).then(()=>{
+                    alert('Podatak unesen');
+                    this.odabrano = '';
+                    this.kolicina = '';
+                });
                 
             }else if(this.odabrano === "hrana" && this.kolicina > 0){
              //   console.log(this.kolicina ); 
@@ -55,7 +60,12 @@ import {jaja} from "../../firebase"
                 hrana.add({
                  kolicinaHrane: this.kolicina,
                  datum: new Date(), 
-                })
+                }).then(()=>{
+                    alert('Podatak unesen');
+                    this.odabrano = '';
+                    this.kolicina = '';
+
+                });
             }else{
                     alert("Upsana neispravana vrijednost");
                 }

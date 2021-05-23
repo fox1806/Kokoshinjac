@@ -14,12 +14,9 @@ import {auth} from '../../firebase';
 export default {
     data() {
         return {
-            mail:'',
-            password:'',
+            mail:'mail@mail.com',
+            password:'lozinka',
         }
-    },
-    props:{
-        clicked:Boolean,
     },
     methods: {
         login() {
@@ -29,22 +26,17 @@ export default {
                         // Signed in
                         // ...
                         this.$emit('loginSucc', false);
-                        this.$router.push("/pregled");
                     })
                     .catch((error) => {
                         var errorCode = error.code;
                         var errorMessage = error.message;
-                        alert('Korisnicko ime ili lozinka nije ispravna')
+                        alert('Korisničko ime ili lozinka nije ispravna')
                     });
             }
             else{
                 alert('Unesite e-mail ili lozinku')
             }
         },
-    beforeCreate() {
-    this.clicked = auth.currentUser;
-    
-  },
     },
 }
 </script>

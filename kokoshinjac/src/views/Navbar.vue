@@ -6,7 +6,7 @@
       <h2 v-if="this.loginButton" @click="prijava()">Prijava</h2>
       <h2 v-if="!this.loginButton" @click="signOut">Odjava</h2>
     </div>
-    <Login v-if="this.clicked" v-on:loginSucc="loginSuccessful"/>
+    <Login v-if="clicked" v-on:loginSucc="loginSuccessful"/>
   </div>
 </template>
 
@@ -16,7 +16,12 @@
   import Unos from './Unos.vue';
 
 export default {
-  name: 'Home',
+  data() {
+    return {
+      clicked: false,
+      loginButton: true,
+    }
+  },  
   components: {
     Login,
     Unos,
@@ -27,30 +32,32 @@ export default {
     },
     loginSuccessful(value){
       //izbrisi
-      console.log('logged');
       this.clicked = value;
       this.loginButton = false;
-      this.$emit('loggedIn',true);
-// this.$emit('loginSucc', false);
-
+      this.$emit('logiranKorisnik');
     },
     signOut(){
       auth.signOut().then(()=>{
-        console.log('odjavljen');
-        // this.$router.push('/')
         this.$router.go()
       });
+    },
+    checkUser(){
+      (auth.currentUser!==null) ? this.loginButton = false : this.loginButton = true;
     }
   },
-  data() {
-    return {
-      clicked: false,
-      loginButton: true,
-    }
-  },
+
   beforeMount(){
-    (auth.currentUser!==null) ? this.loginButton = false : this.loginButton = true;
-  }
+    this.checkUser();
+  },
+  watch:{
+    $route (to, from){
+      // napravljen zbog problema gdje je loginButton u navbaru uzimao true vrijednost. 
+      // dodan watcher za router da provjerava ako postoji
+    this.checkUser();
+    }
+  }, 
+
+
 }
 </script>
 

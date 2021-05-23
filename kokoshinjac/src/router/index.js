@@ -1,16 +1,17 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Navbar from '../views/Navbar.vue'
 import Pregled from '../views/Pregled.vue'
 import Unos from "../views/Unos"
-// import {auth} from "../../firebase"
-import firebase from "firebase/app"
-import "firebase/auth"
+import PregledUnosa from "../views/PregledUnosa"
+import {auth} from "../../firebase"
+// import firebase from "firebase/app"
+// import "firebase/auth"
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Navbar',
+    component: Navbar
   },
   {
     path: '/pregled',
@@ -21,11 +22,20 @@ const routes = [
     }
   },
   {
+    path: '/pregledunosa',
+    name: 'PregledUnosa',
+    component: PregledUnosa,
+    meta: {
+      requiresAuth: true,
+      group: 'user',
+    }
+  },
+  {
     path: '/unos',
     name: 'unos',
     component: Unos,
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
     }
   },
 
@@ -39,14 +49,14 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  const isAuthenticated = firebase.auth().currentUser;
-  // console.log("isauthenticated", isAuthenticated);
-  if (requiresAuth && !isAuthenticated) {
-    next("/");
-    alert("Prijavite se kako bi pristupili navedenom")
-  } else {
-    next();
-  }
+  const isAuthenticated = auth.currentUser;
+      if (requiresAuth && !isAuthenticated) {
+      next("/");
+      alert("Prijavite se kako bi pristupili navedenom")
+    } else {
+      next();
+    }
+  
 });
 
 export default router

@@ -17,7 +17,6 @@ export default {
         return {
             jajaDb: [],
             hranaDb: [],
-            res: [],
         }
     },
     methods: {
