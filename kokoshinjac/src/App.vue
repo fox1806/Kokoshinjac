@@ -3,7 +3,8 @@
     <div class="links">
       <router-link v-if="admin" to="/pregled"> Pregled | </router-link> 
       <router-link v-if="admin||korisnik" to="/unos">Unos | </router-link> 
-      <router-link v-if="admin||korisnik" to="/pregledunosa">Pregled unosa</router-link>
+      <router-link v-if="admin||korisnik" to="/pregledunosa">Pregled unosa </router-link>
+      <router-link v-if="admin||korisnik" to="/troskovnik">| Troskovnik</router-link>
     </div>
     <Navbar />
   <router-view @logiranKorisnik="checkUser"/>
@@ -57,7 +58,7 @@ export default {
 .links{
   /* margin-top: 300px; */
   
-  background: black;
+  background: #222831;
   display: block;
   margin-left: auto;
   margin-right: auto;

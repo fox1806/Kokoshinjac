@@ -3,6 +3,7 @@ import Navbar from '../views/Navbar.vue'
 import Pregled from '../views/Pregled.vue'
 import Unos from "../views/Unos"
 import PregledUnosa from "../views/PregledUnosa"
+import Troskovnik from "../views/Troskovnik"
 import {auth} from "../../firebase"
 // import firebase from "firebase/app"
 // import "firebase/auth"
@@ -34,6 +35,14 @@ const routes = [
     path: '/unos',
     name: 'unos',
     component: Unos,
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: '/troskovnik',
+    name: 'Troskovnik',
+    component: Troskovnik,
     meta: {
       requiresAuth: true,
     }

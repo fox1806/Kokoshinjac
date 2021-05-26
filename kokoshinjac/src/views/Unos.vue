@@ -14,8 +14,7 @@
 </template>
 
 <script>
-import {hrana} from "../../firebase"
-import {jaja} from "../../firebase"
+import {hrana, jaja, auth} from "../../firebase"
 
     export default {
         data(){
@@ -48,6 +47,7 @@ import {jaja} from "../../firebase"
                 jaja.add({
                  kolicinaJaja: this.kolicina,
                  datum: new Date(),  
+                 korisnik: auth.currentUser.uid,
                 }).then(()=>{
                     alert('Podatak unesen');
                     this.odabrano = '';
@@ -60,6 +60,8 @@ import {jaja} from "../../firebase"
                 hrana.add({
                  kolicinaHrane: this.kolicina,
                  datum: new Date(), 
+                 korisnik: auth.currentUser.uid,
+
                 }).then(()=>{
                     alert('Podatak unesen');
                     this.odabrano = '';
