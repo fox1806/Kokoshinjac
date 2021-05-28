@@ -90,11 +90,8 @@ export default {
 
   .buttons{
     color: #D4AF37;
-    position: absolute;
-    top: 0;
     cursor: pointer;
-    margin-top: 55px;
-    margin-left: 15px;
+    margin-top: 25px;
   }
 
   @media only screen and (max-width: 750px) {

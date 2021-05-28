@@ -2,7 +2,7 @@
     <div class="unos">
      <h1>Unos</h1>
         <select class="dropUnos" v-model ="odabrano">
-            <option disabled value="">Unos</option>
+            <option disabled value="">Odabir</option>
             <option v-for ="opcija in opcije" :key="opcija" :value="opcija">{{opcija}}</option>
         </select>
         <br>
