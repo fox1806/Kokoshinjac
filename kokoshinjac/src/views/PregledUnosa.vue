@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import {auth, jaja, hrana} from '../../firebase'
+import {auth, jaja, hrana,users} from '../../firebase'
 
 export default {
     data() {
@@ -50,24 +50,34 @@ export default {
     methods: {
         nextPage(){
             let query;
-            if(this.odabrano==="Jaja"){
+            try {
+                if(this.odabrano==="Jaja"){
                 query = jaja.orderBy("datum").limit(this.limit).startAfter(this.last);
-            }else if(this.odabrano==="Hrana"){
-                query = hrana.orderBy("datum").limit(this.limit).startAfter(this.last);
+                }else if(this.odabrano==="Hrana"){
+                    query = hrana.orderBy("datum").limit(this.limit).startAfter(this.last);
+                }
+                this.loadDb(query);
+                this.stranica++;
+            } catch (error) {
+                this.startLoadDb();
             }
-            this.loadDb(query);
-            this.stranica++;
+            
         },
         prevPage(first){
             let query;
-            if(this.odabrano==="Jaja"){
+            try {
+                if(this.odabrano==="Jaja"){
                 query = jaja.orderBy("datum").limitToLast(this.limit).endBefore(this.first);
-            }else if(this.odabrano==="Hrana"){
-                query = hrana.orderBy("datum").limitToLast(this.limit).endBefore(this.first);
+                }else if(this.odabrano==="Hrana"){
+                    query = hrana.orderBy("datum").limitToLast(this.limit).endBefore(this.first);
+                }
+                this.loadDb(query);
+                this.dalje=true;
+                this.stranica--;
+            } catch (error) {
+                this.startLoadDb();
             }
-            this.loadDb(query);
-            this.dalje=true;
-            this.stranica--;
+            
         },
         startLoadDb(){
             this.dalje=true;
@@ -84,32 +94,62 @@ export default {
         },
         loadDb(query){
             let user = auth.currentUser.uid;
-                query.where("korisnik","==",user).onSnapshot({
-                    // Listen for document metadata changes
-                includeMetadataChanges: true
-                }, (doc) => {
-                    this.loadedDb.length = 0;
-                    // ...
-                    this.last = doc.docs[doc.docs.length-1]
-                    this.first = doc.docs[0]
-
-                    let counter = 0;
-
+            let grupa;
+            users.onSnapshot((doc) => {
                     doc.forEach((data)=>{
-                        counter++;
-                        if(data.data().korisnik === user){
-                            this.loadedDb.push([
-                                data.id,
-                            data.data(),
-                            ])
-                    }
+                        if(user===data.data().UID) grupa = data.data().grupa;
                     })
-                    if(counter!=this.limit) this.dalje=false;
-                    // console.log(counter);
-                    this.formatDate()
+                // ako je admin ima pristup svim podacima
+                if(grupa==="admin") {
+                    query.onSnapshot({
+                    // Listen for document metadata changes
+                    includeMetadataChanges: true
+                    }, (doc) => {
+                        this.loadedDb.length = 0;
+                        // ...
+                        this.last = doc.docs[doc.docs.length-1]
+                        this.first = doc.docs[0]
+
+                        let counter = 0;
+
+                        doc.forEach((data)=>{
+                            counter++;
+                                this.loadedDb.push([
+                                    data.id,
+                                data.data(),
+                                ])
+                        })
+                        if(counter!=this.limit) this.dalje=false;
+                        // console.log(counter);
+                        this.formatDate()
                 });
-                            
-            
+                // inace je korisnik i ima pristup samo svojim podacima
+                }else {
+                    query.where("korisnik","==",user).onSnapshot({
+                    // Listen for document metadata changes
+                    includeMetadataChanges: true
+                    }, (doc) => {
+                        this.loadedDb.length = 0;
+                        // ...
+                        this.last = doc.docs[doc.docs.length-1]
+                        this.first = doc.docs[0]
+
+                        let counter = 0;
+
+                        doc.forEach((data)=>{
+                            counter++;
+                                this.loadedDb.push([
+                                    data.id,
+                                data.data(),
+                                ])
+                        })
+                        if(counter!=this.limit) this.dalje=false;
+                        // console.log(counter);
+                        this.formatDate()
+                });
+                }
+                })
+                
         },
         formatDate(){
             this.loadedDb.forEach((vrijednost)=>{

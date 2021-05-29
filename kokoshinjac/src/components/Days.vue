@@ -3,11 +3,11 @@
         
         <div v-for="day in this.date" :key="day" class="day">
             <p class="dateInfo">{{day}}. {{month}}</p>
-            <!-- prolazak kroz broj polja iz baze -->
+            <!-- prolazak kroz broj polja iz baze jajaDb-->
             <div v-for="(dayDb,index1) in this.jajaDb" :key="dayDb">
                 <p v-if="dayDb.datum[0]==day">Količina jaja: {{this.jajaDb[index1].kolicinaJaja}}</p>
             </div>
-            <!-- prolazak kroz broj polja iz baze -->
+            <!-- prolazak kroz broj polja iz baze hranaDb-->
             <div v-for="(hrana,index2) in this.hranaDb" :key="hrana">
                 <p v-if="hrana.datum[0]==day">Potrošena hrana (kg): {{this.hranaDb[index2].kolicinaHrane}}</p>
             </div>

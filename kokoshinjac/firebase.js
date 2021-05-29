@@ -5,7 +5,7 @@ import 'firebase/firestore'
 
 const firebaseConfig = {
     // unos podataka API-a
-    
+
   };
  
   
@@ -21,7 +21,6 @@ const hrana = db.collection('hrana');
 const users = db.collection('korisnici');
 
 export {
-    db,
     auth,
     jaja,
     hrana,
