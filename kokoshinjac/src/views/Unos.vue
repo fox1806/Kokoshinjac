@@ -85,52 +85,43 @@ import {hrana, jaja, auth} from "../../firebase"
 <style>
     .unos {
         margin-top: 200px;
-        margin-left: 50%;
+        /* margin-left: 50%; */
+        display: grid;
+        margin-left: auto;
+        margin-right: auto;
     }
-     .buttons{
-    color: #D4AF37;
-    position: absolute;
-    top: 0;
-    cursor: pointer;
-    margin-top: 55px;
-    margin-left: 15px;
-  }
+    .unos h1{
+        margin-left: auto;
+        margin-right: auto;
+        color: #222831;
+    }
      .buttonSpremi{
     color: black;
     background-color: white;
-    position : absolute;
-    top: 300px ;
+    /* position : absolute; */
+    /* top: 300px ; */
+    width: 70px;
     cursor: pointer;
-    margin-top: 55px;
-    margin-left: 15px;
-    text-align: centar;
+    margin-left: auto;
+    margin-right: auto;
   }
-    .home{
-    position: absolute;
-    width: 100vw;
-    height: 150px;
-    background-color: black;
-    top: 0;
-    left: 0;
-    margin-top: 30px;
-  }
+
     .dropUnos {
      background-color:white;
      color: black;
-     width: 25vx;
      height: 25px;
      font-size: 15px;
-     border: none;
      cursor: pointer;
-     text-align: centar;
 }
 
  .unosKolicine{
      text-align: left;
      color: black;
      top: 150px;
-     width: 25vx;
+     width: 120px;
      height: 25px;
+     margin-right: auto;
+     margin-left: auto;
  }
     
 </style>

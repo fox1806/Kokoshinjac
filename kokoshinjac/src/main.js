@@ -6,10 +6,8 @@ import "firebase/auth"
 
 
   let app;
-
   firebase.auth().onAuthStateChanged(user=>{
-    // console.log(user);
-    if(!app){
+      if(!app){
       app = createApp(App).use(router).mount('#app')
     }
   })

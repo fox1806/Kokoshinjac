@@ -19,10 +19,6 @@ export default {
             hranaDb: [],
         }
     },
-    methods: {
-        
-    
-    },
     beforeCreate(){
         let result;
         jaja.onSnapshot({
@@ -54,7 +50,6 @@ export default {
         this.hranaDb.length = 0;
         // ...
         doc.forEach(data=>{
-            // console.log(data.data());
             this.hranaDb.push(data.data());
         })
         result = Object.values(this.hranaDb.reduce((a, {datum, kolicinaHrane}) => {

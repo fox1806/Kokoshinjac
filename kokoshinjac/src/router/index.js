@@ -1,15 +1,18 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import {
+  createRouter,
+  createWebHashHistory
+} from 'vue-router'
 import Navbar from '../views/Navbar.vue'
 import Pregled from '../views/Pregled.vue'
 import Unos from "../views/Unos"
 import PregledUnosa from "../views/PregledUnosa"
 import Troskovnik from "../views/Troskovnik"
-import {auth} from "../../firebase"
-// import firebase from "firebase/app"
-// import "firebase/auth"
+import {
+  auth,
+  users
+} from "../../firebase"
 
-const routes = [
-  {
+const routes = [{
     path: '/',
     name: 'Navbar',
     component: Navbar
@@ -19,7 +22,8 @@ const routes = [
     name: 'Pregled',
     component: Pregled,
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
+      requiresGroup: true,
     }
   },
   {
@@ -28,7 +32,6 @@ const routes = [
     component: PregledUnosa,
     meta: {
       requiresAuth: true,
-      group: 'user',
     }
   },
   {
@@ -37,6 +40,7 @@ const routes = [
     component: Unos,
     meta: {
       requiresAuth: true,
+
     }
   },
   {
@@ -45,10 +49,11 @@ const routes = [
     component: Troskovnik,
     meta: {
       requiresAuth: true,
+      requiresGroup: true,
     }
   },
 
-  ]
+]
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -57,15 +62,41 @@ const router = createRouter({
 
 
 router.beforeEach((to, from, next) => {
+  let routeGroup;
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  let requiresGroup = to.matched.some(record => record.meta.requiresGroup);
+
   const isAuthenticated = auth.currentUser;
-      if (requiresAuth && !isAuthenticated) {
+
+  if (isAuthenticated) {
+    let grupa;
+    // Odrediti grupu u koju spada korisnik
+    users.where("UID", "==", isAuthenticated.uid).get().then((querySnapshot) => {
+      querySnapshot.forEach(doc => {
+        grupa = doc.data().grupa;
+      })
+      // usporediti grupe, odnosno provjeriti je li korisnik voditelj 
+      // ili djelatnik
+      if (requiresGroup && grupa !== "voditelj") {
+        next("/");
+        alert("Ruta nije dostupna Vašem radnom mjestu.")
+      } else {
+        next();
+      }
+    })
+  } else {
+    // u slucaju da korisnik nije logiran radi se provjera 
+    // ako ruta trazi autentifikaciju i ako je korisnik autentificiran
+    if (requiresAuth && !isAuthenticated) {
       next("/");
       alert("Prijavite se kako bi pristupili navedenom")
     } else {
       next();
     }
-  
+  }
+
+
+
 });
 
 export default router

@@ -38,7 +38,6 @@ export default {
         return {
             loadedDb: [],
             odabrano:'',
-            // stavi na prazno odabrano
             opcije :['Jaja','Hrana'],    
             limit: 8,
             last: '', 
@@ -100,7 +99,7 @@ export default {
                         if(user===data.data().UID) grupa = data.data().grupa;
                     })
                 // ako je admin ima pristup svim podacima
-                if(grupa==="admin") {
+                if(grupa==="voditelj") {
                     query.onSnapshot({
                     // Listen for document metadata changes
                     includeMetadataChanges: true
@@ -143,8 +142,9 @@ export default {
                                 data.data(),
                                 ])
                         })
+                        // 
                         if(counter!=this.limit) this.dalje=false;
-                        // console.log(counter);
+
                         this.formatDate()
                 });
                 }

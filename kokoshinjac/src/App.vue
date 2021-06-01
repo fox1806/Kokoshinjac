@@ -4,7 +4,7 @@
       <router-link v-if="admin" to="/pregled"> Pregled | </router-link> 
       <router-link v-if="admin||korisnik" to="/unos">Unos | </router-link> 
       <router-link v-if="admin||korisnik" to="/pregledunosa">Pregled unosa </router-link>
-      <router-link v-if="admin||korisnik" to="/troskovnik">| Troskovnik</router-link>
+      <router-link v-if="admin" to="/troskovnik">| Troškovnik</router-link>
     </div>
     <Navbar />
   <router-view @logiranKorisnik="checkUser"/>
@@ -37,7 +37,7 @@ export default {
     querySnapshot.forEach((doc) => {
             if(currentUser){
               if(currentUser.uid === doc.data().UID){
-                if(doc.data().grupa==='admin') this.admin=true;
+                if(doc.data().grupa==='voditelj') this.admin=true;
                 else this.korisnik = true;
               }
           }

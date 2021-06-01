@@ -89,14 +89,31 @@ export default {
     }
 
   .buttons{
+    position: absolute;
+    top: 0;
     color: #D4AF37;
     cursor: pointer;
-    margin-top: 25px;
+    margin-top: 35px;
+    margin-left: 20px;
   }
 
   @media only screen and (max-width: 750px) {
     .home h1{
-      left: 50%;
+      /* left: 50%; */
+      transform: translateX(-55px);
+      font-size: 35px;
+    }
+    .home img {
+      height: 50px;
+      padding: 0;
+      margin-left: auto;
+      margin-right: auto;
+      /* margin-top: 20px; */
+    }
+    .buttons {
+      font-size: 15px;
+      margin: 0;
+      padding-left: 10px;
     }
 }
 </style>

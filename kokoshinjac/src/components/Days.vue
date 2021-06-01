@@ -46,16 +46,16 @@ export default {
         background: #D4AF37;
     }
     .days{
+        margin-left: auto;
         cursor: pointer;
         padding-top: 190px;
         display: grid;
-        grid-template-columns: repeat(9, 10vw [col-start]);
-        /* grid-gap: 0px; */
-        padding-left: 20px;
+        grid-template-columns: repeat(7, 13vw [col-start]);
+        justify-content: center;
     }
     .days p{
-        /* padding-left: 25px; */
         text-align: center;
+        
     }
 
     .dateInfo{
@@ -65,27 +65,33 @@ export default {
     .day {
         border: 1px solid black;
         margin: 5px 5px;
-        height: 125px;
+        height: 150px;
     }
 
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 950px) {
     .days{
-        grid-template-columns: repeat(7, 13vw [col-start]);
+        grid-template-columns: repeat(6, 15vw [col-start]);
 
     }
 }
     
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 775px) {
     .days{
         grid-template-columns: repeat(5, 18vw [col-start]);
 
     }
 }
-   
-@media only screen and (max-width: 990px) {
-    .days{
-        grid-template-columns: repeat(3, 28vw [col-start]);
 
+@media only screen and (max-width: 650px) {
+    .days{
+        grid-template-columns: repeat(4, 20vw [col-start]);
+
+    }
+}
+   
+@media only screen and (max-width: 600px) {
+    .days{
+        grid-template-columns: repeat(3, 32vw [col-start]);
     }
 }
 

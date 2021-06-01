@@ -23,8 +23,7 @@ export default {
             if(this.mail.trim() !== '' && this.password.trim() !==''){
                 auth.signInWithEmailAndPassword(this.mail, this.password)
                     .then((userCredential) => {
-                        // Signed in
-                        // ...
+                        // Korisnik prijavljen
                         this.$emit('loginSucc', false);
                     })
                     .catch((error) => {
@@ -42,10 +41,6 @@ export default {
 </script>
 
 <style>
-    .loginBody{
-        
-    }
-
     .loginForm{
         margin-top: 150px;
         display: flex;
