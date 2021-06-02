@@ -73,6 +73,13 @@ export default {
 
 .links a{
   color: #D4AF37;
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 400px) {
+    .links a {
+      font-size: 15px;
+    }
 }
 
 </style>

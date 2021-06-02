@@ -59,10 +59,11 @@ export default {
     }
 
     .dateInfo{
-        border-bottom: 1px solid black;
-        
+        border-bottom: 1px solid black;        
     }
     .day {
+        box-shadow: 5px 5px #888888;
+        background-color: wheat;
         border: 1px solid black;
         margin: 5px 5px;
         height: 150px;

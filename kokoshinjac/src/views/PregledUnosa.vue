@@ -161,7 +161,7 @@ export default {
         },
         izbrisi(ID){
             if(confirm('Jeste sigurni da želite ukloniti podatak?')){
-                if(this.odabrano==="jaja"){
+                if(this.odabrano==="Jaja"){
                     jaja.doc(ID).delete().then(() => {
                         // brisanje po ID-u
                         alert('Podatak uspješno uklonjen');
