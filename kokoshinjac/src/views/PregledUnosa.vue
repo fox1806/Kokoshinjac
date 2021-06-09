@@ -1,11 +1,10 @@
 <template>
     <div class="pregledUnosa">
         <h1 class="mainText">Odabir kategorije pregleda</h1>
-        <select class="dropUnos" v-model ="odabrano">
+        <select @change="startLoadDb" class="dropUnos" v-model ="odabrano">
             <option disabled value="">Odabir</option>
             <option v-for ="opcija in opcije" :key="opcija" :value="opcija">{{opcija}}</option>
         </select>
-        <button class="dropUnos" @click="startLoadDb">Odaberi</button>
         <div class="pregledBaze" v-if="this.loadedDb">
             <table class="tablicaPrikaz" v-if="this.odabrano">
                 <tr>
@@ -47,6 +46,9 @@ export default {
         }
     },
     methods: {
+        testFunc(){
+            console.log('??');
+        },
         nextPage(){
             let query;
             try {
@@ -208,7 +210,10 @@ export default {
         width: 100px;
         justify-self: center;
         border: 1px solid black;
-        
+        margin-bottom: 15px;   
+    }
+    .dropUnos option {
+        text-align: center;
     }
     .tablicaPrikaz{
         width: 500px;
@@ -220,11 +225,9 @@ export default {
      .paginationButtons{
         display: flex;
         justify-content: center;
-        /* border: 2px solid black; */
     } 
     .btnNext {
         margin-left: 25px;
-        /* position: absolute; */
         border: 2px solid black;
         line-height: 40px;
         width: 100px;

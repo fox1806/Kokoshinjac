@@ -9,7 +9,7 @@
             Ukupno potrošeno hrane (kg):
             {{this.hrana}}
         </p>
-        <h2>Ukupni prihodi u mjesecu: {{this.jaja*2-this.hrana*2}}HRK</h2>
+        <h2>Ukupni profit u mjesecu: {{this.jaja*2-this.hrana*2}}HRK</h2>
     </div>
 </template>
 

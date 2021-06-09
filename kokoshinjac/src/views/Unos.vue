@@ -25,29 +25,12 @@ import {hrana, jaja, auth} from "../../firebase"
             }
         },
        methods: {
- 
-        add(index) {
-            this.inputs.push({});
-            },
-
-
-        odabirKolekcije(){
-            //console.log(this.odabrano);
-            if(this.odabrano === "jaja"){
-              //  console.log(this.odabrano);
-            }else if(this.odabrano==="hrana"){
-                console.log(this.odabrano);
-            }
-            },
-
         unosRekorda(){
             if (this.odabrano === "jaja" && this.kolicina > 0){
-              //  console.log(this.kolicina); 
-              //  console.log(new Date);
                 jaja.add({
-                 kolicinaJaja: this.kolicina,
-                 datum: new Date(),  
-                 korisnik: auth.currentUser.uid,
+                    kolicinaJaja: this.kolicina,
+                    datum: new Date(),  
+                    korisnik: auth.currentUser.uid,
                 }).then(()=>{
                     alert('Podatak unesen');
                     this.odabrano = '';
@@ -55,8 +38,6 @@ import {hrana, jaja, auth} from "../../firebase"
                 });
                 
             }else if(this.odabrano === "hrana" && this.kolicina > 0){
-             //   console.log(this.kolicina ); 
-             //   console.log(new Date);
                 hrana.add({
                  kolicinaHrane: this.kolicina,
                  datum: new Date(), 
@@ -69,7 +50,7 @@ import {hrana, jaja, auth} from "../../firebase"
 
                 });
             }else{
-                    alert("Upsana neispravana vrijednost");
+                    alert("Upisana neispravna vrijednost");
                 }
         },
        

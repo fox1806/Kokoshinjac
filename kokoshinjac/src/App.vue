@@ -30,7 +30,6 @@ export default {
     this.checkUser();
   },
   methods: {
-    
     checkUser(){
       const currentUser = auth.currentUser;
     users.get().then((querySnapshot) => {
