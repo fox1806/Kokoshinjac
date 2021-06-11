@@ -10,15 +10,15 @@
                 <tr>
                     <th>Identifikacijska oznaka podatka</th>
                     <th>Datum unosa</th>
-                    <th v-if="this.odabrano==='Jaja'">Količina jaja</th>
-                    <th v-if="this.odabrano==='Hrana'">Količina hrane (kg)</th>
+                    <th class="kolicina" v-if="this.odabrano==='Jaja'">Količina jaja</th>
+                    <th class="kolicina" v-if="this.odabrano==='Hrana'">Količina hrane (kg)</th>
                 </tr>
                 <tr v-for="podatak in this.loadedDb" :key="podatak[0]" >
                     <th class="redoviPrikaz">{{podatak[0]}}</th>
                     <th class="redoviPrikaz">{{podatak[1].datum}}</th>
                     <th class="redoviPrikaz" v-if="this.odabrano==='Jaja'">{{podatak[1].kolicinaJaja}}</th>
                     <th class="redoviPrikaz" v-if="this.odabrano==='Hrana'">{{podatak[1].kolicinaHrane}}</th>
-                    <th class="deleteBtn, redoviPrikaz" @click="izbrisi(podatak[0])"><img src="../assets/trash.png"></th>
+                    <th class="deleteBtn redoviPrikaz" @click="izbrisi(podatak[0])"><img src="../assets/trash.png"></th>
                 </tr>
             </table>
         </div>
@@ -212,12 +212,8 @@ export default {
         border: 1px solid black;
         margin-bottom: 15px;   
     }
-    .dropUnos option {
-        text-align: center;
-    }
     .tablicaPrikaz{
         width: 500px;
-
     }
     .deleteBtn {
         cursor: pointer;
@@ -247,4 +243,29 @@ export default {
     .btnBack img{
         vertical-align: middle;
     }
+
+
+@media only screen and (max-width: 750px) {
+    .tablicaPrikaz{
+        width: 0px;
+        /* justify-content: center; */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    th{
+        max-width: 80px;
+        overflow-wrap: break-word;
+        
+    }
+
+    .deleteBtn{
+        transform: scale(0.5);
+    }
+
+    .kolicina {
+        max-width: 40px;
+        overflow-wrap: break-word;
+    }
+}
+    
 </style>

@@ -9,7 +9,7 @@
             </div>
             <!-- prolazak kroz broj polja iz baze hranaDb-->
             <div v-for="(hrana,index2) in this.hranaDb" :key="hrana">
-                <p v-if="hrana.datum[0]==day">Potrošena hrana (kg): {{this.hranaDb[index2].kolicinaHrane}}</p>
+                <p v-if="hrana.datum[0]==day">Potrošena hrana (kg): {{roundToTwo(this.hranaDb[index2].kolicinaHrane)}}</p>
             </div>
         </div>
     </div>
@@ -27,6 +27,11 @@ export default {
     props: {
         jajaDb: Object,
         hranaDb: Object,
+    },
+    methods: {
+        roundToTwo(num) {    
+        return +(Math.round(num + "e+2")  + "e-2");
+        }
     },
     beforeMount() {
         let months = ["Siječanj","Veljača","Ožujak","Travanj", "Svibanj","Lipanj","Srpanj","Kolovoz","Rujan","Listopad", "Studeni", "Prosinac"];
@@ -47,7 +52,6 @@ export default {
     }
     .days{
         margin-left: auto;
-        cursor: pointer;
         padding-top: 190px;
         display: grid;
         grid-template-columns: repeat(7, 13vw [col-start]);

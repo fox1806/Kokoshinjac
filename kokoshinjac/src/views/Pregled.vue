@@ -59,7 +59,6 @@ export default {
         a[datum].kolicinaHrane = String(Number(a[datum].kolicinaHrane) + Number(kolicinaHrane));
         return a;
         }, {}));
-    
         this.hranaDb.length = 0;
         this.hranaDb.push.apply(this.hranaDb,result);
     });

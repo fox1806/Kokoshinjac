@@ -26,28 +26,28 @@ export default {
     beforeCreate(){
         jaja.onSnapshot({
             // Listen for document metadata changes
-        includeMetadataChanges: true
-    }, (doc) => {
-        this.jaja=0;
-        // ...
-        doc.forEach(data=>{
-            this.jaja+=parseFloat(data.data().kolicinaJaja);
-        })
-        
-    });
+            includeMetadataChanges: true
+             }, (doc) => {
+            this.jaja=0;
+            // ...
+            doc.forEach(data=>{
+                this.jaja+=parseFloat(data.data().kolicinaJaja);
+            })
+            
+            });
     
     hrana.onSnapshot({
-        // Listen for document metadata changes
-        includeMetadataChanges: true
-    }, (doc) => {
-        this.hrana=0;
-        // ...
-        doc.forEach(data=>{
-            this.hrana+=parseFloat(data.data().kolicinaHrane);
+            // Listen for document metadata changes
+            includeMetadataChanges: true
+            }, (doc) => {
+            this.hrana=0;
+            // ...
+            doc.forEach(data=>{
+                this.hrana+=parseFloat(data.data().kolicinaHrane);
 
-        })
-    
-    });
+            })
+        
+            });
     }
 }
 </script>
