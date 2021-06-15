@@ -1,1 +1,59 @@
-<mxfile host="app.diagrams.net" modified="2021-04-14T14:52:59.015Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="5APWQGvb-rguMF0egAZZ" version="14.6.0" type="browser"><diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">7Zptc9o4EIB/jT+WsfyG+Rigl9Kmd7nQu7T9cqPailEjW0QWr7++KyyDjRgwOUjuWmYyGe9qtbZ2H2mlKJbbS+fXAo9HH3lMmOXY8dxy+5bjtEMbfivFQitsv1AkgsaFCm0UQ7okWqn7JRMak7xmKDlnko7ryohnGYlkTYeF4LO62QNn9beOcUIMxTDCzNTe01iOCm3otDf6d4Qmo/LNKOgULSkujfVI8hGO+ayict9abk9wLoundN4jTMWujMv9YHHPbh6D6/d/5k/4r+6HT7///aZw9tsxXdZDECSTz3b9+M9gFvfDrySbTJ7QH8ulzL/rLvYUs4mO12CKM9AMptTqeVbYttwrEO9wnNFHHQe5KIObz2jKcAZS94FncqhbbJCjEWXxDV7wifrkXOLosZS6Iy7oEuwxgyYECmgWUrPjBDWLoeqpfQqSg81tGQe0pfqI5zXDG5zL8ms4Y3ic02+r71MdUywSmnW5lDzVRpjRJIPnCHwRUY6p+CrkgdwwDzpfUyIkmVco1Hm5JjwlUizARLcGts6DnmNeoOXZhljU0bpRldbA0zNFz5Jk7XtDAjxoGI4AIzTB6BcoUBg78K90tm0jgwkYs6wEk5EHJapgUJiVV1ot+VjlfYwjmiU3K5u+t9Hc6TEqFYe+D2w180Y0jkmmEswllvjbmrYxh89axcDvwg+Eqme3fMuHD+qBjDYy/ChzIXs8y6XAdJVKAqjMiMIFXE+ymMTa8XrSK2EkU6YfTRT2zq/DKOjUA/2NMu+EZ0p820g8STFlRe6HUkBy1um3nOBpopa/Lm3RKY0sz06UcSuCObVuuxByUkJ875UJCQxCbgVZ0pQcYGRTUi5onAeN0HllNHyzajTAQm04LkSchQiEGu4kzoaEZyDxicoJwweo+IrHPGdkten8adk4W9bdsGHWgzNlvWNk/T3+jpueH5xdm/HdaX3RY8axB4o9cx944I/rEyk64+Gi420dLuwdS0KwA44SmF1w6LfdwYkdZwnEYP06x62/DnkNX7fNImaQ9wxL0lVRzA0k1yN9PqXIPP5+4KzYpfRppteoAQCYAILlIoW8X3Uh6jRmb89ppknuT7YOIWRkuI/lJC0yC4+kktaW7bUc27kcaU8Lgb9jV/qyELgGBO8Ezi7l6L9QjoJdO9RftByZe+UG5Sj46ZarhgvRelr/j8qReUC+lKN/V46Op+D165H5N1YjxySLr9TtF0gZX1UkHRpkBBDiIxafq8IXJbRCLygV/Xm1ub+oSrdEUBiXKmqFck6l8oZatu1ruXDohIGWN/6UsKgI296OKyM5n4iI7AmdTgkUzoTspUI7JHHtdtBkQhCGJZ3WLwv3lJhbXtx/aNLCrZubINyqUsWIdK/q7dyWo05wwFExZMPRyWqPeeFzEibf2IBRUAUTNAj5zyHzOJYOM+K/DCPtjltLrd9+LiNuu86IfypGQNzcYxfmm38GcN/+AA==</diagram></mxfile>
+<mxfile>
+    <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+        <mxGraphModel dx="769" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="WIyWlLk6GJQsqaUBKTNV-0"/>
+                <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0"/>
+                <mxCell id="k_IwdD8Zenuuq1Ozztsj-0" value="Ivan Ivić: Radnik" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+                    <mxGeometry x="480" y="460" width="310" height="136" as="geometry"/>
+                </mxCell>
+                <mxCell id="k_IwdD8Zenuuq1Ozztsj-8" value="titula: string = djelatnik" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="k_IwdD8Zenuuq1Ozztsj-0" vertex="1">
+                    <mxGeometry y="26" width="310" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="k_IwdD8Zenuuq1Ozztsj-7" value="email: email = &quot;i.ivic@gmail.com&quot;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="k_IwdD8Zenuuq1Ozztsj-0" vertex="1">
+                    <mxGeometry y="54" width="310" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="k_IwdD8Zenuuq1Ozztsj-5" value="password: password = &quot;zaporka&quot;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="k_IwdD8Zenuuq1Ozztsj-0" vertex="1">
+                    <mxGeometry y="82" width="310" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="k_IwdD8Zenuuq1Ozztsj-4" value="ID: string = &quot;Fyvx9k7c4AZiIxnHhkKy16pHbWI3&quot;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="k_IwdD8Zenuuq1Ozztsj-0" vertex="1">
+                    <mxGeometry y="110" width="310" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="k_IwdD8Zenuuq1Ozztsj-9" value="Jaja" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+                    <mxGeometry x="940" y="400" width="280" height="90" as="geometry">
+                        <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="k_IwdD8Zenuuq1Ozztsj-10" value="kolicina: number = 14" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="k_IwdD8Zenuuq1Ozztsj-9" vertex="1">
+                    <mxGeometry y="26" width="280" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="k_IwdD8Zenuuq1Ozztsj-11" value="datum: Date = May 1, 2021 at 2:00:00 PM UTC+2" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="k_IwdD8Zenuuq1Ozztsj-9" vertex="1">
+                    <mxGeometry y="52" width="280" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="k_IwdD8Zenuuq1Ozztsj-13" value="Hrana" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+                    <mxGeometry x="940" y="610" width="280" height="90" as="geometry">
+                        <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ccE3cTkj2Ex40ntNiXGW-0" value="kolicina: number = 14" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="k_IwdD8Zenuuq1Ozztsj-13" vertex="1">
+                    <mxGeometry y="26" width="280" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="ccE3cTkj2Ex40ntNiXGW-1" value="datum: Date = May 1, 2021 at 2:00:00 PM UTC+2" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="k_IwdD8Zenuuq1Ozztsj-13" vertex="1">
+                    <mxGeometry y="52" width="280" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="k_IwdD8Zenuuq1Ozztsj-17" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.846;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.005;exitY=0.286;exitDx=0;exitDy=0;exitPerimeter=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" target="k_IwdD8Zenuuq1Ozztsj-11" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="790.95" y="550.008" as="sourcePoint"/>
+                        <mxPoint x="960" y="680" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="k_IwdD8Zenuuq1Ozztsj-18" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="k_IwdD8Zenuuq1Ozztsj-5" target="ccE3cTkj2Ex40ntNiXGW-0" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="793" y="570" as="sourcePoint"/>
+                        <mxPoint x="938.3199999999999" y="659.01" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
